@@ -43,6 +43,48 @@ public class UserDAO
 		return cnt;
 	}
 	
+	public UserDTO login(UserDTO dto)
+	{
+		UserDTO cnt = null;
+		// 1. 동적 로딩 + 권한확인
+		dbOpen();
+		String sql = "SELECT * FROM 회원정보 WHERE 회원ID = ? AND PW = ?";
+		
+		try
+		{
+			psmt = conn.prepareStatement(sql);
+
+			psmt.setInt(1, dto.getID());
+			psmt.setInt(2, dto.getPW());
+
+			rs = psmt.executeQuery();
+			
+			// rs
+			// 1) 자바에서 사용할 수 있는 테이블 형태의 데이터
+			// 2) cursor가 하나 생겨있음 : rs
+			if(rs.next())
+			{
+				int ID = rs.getInt("회원ID");
+				int PW = rs.getInt("PW");
+				String Name = rs.getString("닉네임");
+				cnt = new UserDTO(ID,  PW, Name);
+				
+			}
+
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			System.out.println("sql 실행 에러");
+			e.printStackTrace();
+		} finally
+		{
+			dbClose();
+
+		}
+
+		return cnt;
+	}
+	
 	
 	// 데이터베이스와의 동적로딩/권한확인
 	public void dbOpen()

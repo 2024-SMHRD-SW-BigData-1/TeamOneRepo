@@ -22,5 +22,22 @@ public class Controller
 		}
 	}
 	
+	public boolean login(UserDTO dto)
+	{
+		// 1. StudentDAO 객체 생성
+		UserDAO dao = new UserDAO();
+		
+		UserDTO cnt = dao.login(dto);
+
+
+		if(cnt.getName() == null)
+		{
+			System.out.println("아이디, 비밀번호가 일치하지 않습니다");
+			return false;
+		}
+		System.out.println("환영합니다 "+ cnt.getName()+"님");
+		
+		return true;
+	}
 	
 }

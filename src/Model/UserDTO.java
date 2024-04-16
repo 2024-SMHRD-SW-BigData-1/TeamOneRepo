@@ -12,6 +12,12 @@ public class UserDTO
 		this.PW = PW;
 		this.Name = Name;
 	}
+	
+	public UserDTO(int  ID, int PW)
+	{
+		this.ID = ID;
+		this.PW = PW;
+	}
 
 	
 	public int getID()
