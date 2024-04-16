@@ -45,7 +45,7 @@ public class UserDAO
 	
 	public UserDTO login(UserDTO dto)
 	{
-		UserDTO cnt = null;
+		
 		// 1. 동적 로딩 + 권한확인
 		dbOpen();
 		String sql = "SELECT * FROM 회원정보 WHERE 회원ID = ? AND PW = ?";
@@ -67,7 +67,7 @@ public class UserDAO
 				int ID = rs.getInt("회원ID");
 				int PW = rs.getInt("PW");
 				String Name = rs.getString("닉네임");
-				cnt = new UserDTO(ID,  PW, Name);
+				dto = new UserDTO(ID,  PW, Name);
 				
 			}
 
@@ -82,7 +82,7 @@ public class UserDAO
 
 		}
 
-		return cnt;
+		return dto;
 	}
 	
 	
