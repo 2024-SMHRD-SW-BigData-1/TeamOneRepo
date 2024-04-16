@@ -5,12 +5,14 @@ public class UserDTO
 	private int ID;
 	private int PW;
 	private String Name;
+	private int scoreID;
 
 	public UserDTO(int  ID, int PW, String Name)
 	{
 		this.ID = ID;
 		this.PW = PW;
 		this.Name = Name;
+		this.scoreID = 0;
 	}
 	
 	public UserDTO(int  ID, int PW)
@@ -49,5 +51,16 @@ public class UserDTO
 	{
 		this.Name = Name;
 	}
+	
+	public int getscoreID()
+	{
+		return scoreID;
+	}
+	
+	public void setscoreID(int scoreID)
+	{
+		this.scoreID = scoreID;
+	}
+	
 	
 }

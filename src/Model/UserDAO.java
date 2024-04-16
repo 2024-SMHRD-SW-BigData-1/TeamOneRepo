@@ -20,7 +20,7 @@ public class UserDAO
 		try
 		{
 
-			String sql = "INSERT INTO 회원정보 VALUES(?, ?, ?)";
+			String sql = "INSERT INTO 회원정보 (회원ID, PW, 닉네임) VALUES(?, ?, ?)";
 			psmt = conn.prepareStatement(sql);
 
 			psmt.setInt(1, dto.getID());
@@ -138,4 +138,5 @@ public class UserDAO
 			e.printStackTrace();
 		}
 	}
+ 
 }

@@ -15,6 +15,8 @@ public class Main
 		Screen screen = new Screen();
 		Scanner sc = new Scanner(System.in);
 		
+		UserDTO player = null;
+		
 //		screen.StartDraw();
 //		screen.Clear();
 		// 게임 시작
@@ -41,10 +43,10 @@ public class Main
 				UserDTO dto1 = new UserDTO(ID1, PW1);
 				Controller con1 = new Controller();
 				
-				
-				if(con1.login(dto1) == true)
+				player = con1.login(dto1);
+				if(player != null)
 				{
-					System.out.println();
+					System.out.println("");
 					loginLoop = false;
 				}
 				
@@ -83,9 +85,14 @@ public class Main
 		
 		// 게임 진행
 		
+		if(player.getscoreID() == 0)
+		{
+			System.out.println("값이 비어있네요");
+		}
+		
 		while(true)
 		{
-			
+
 		}
 		
 		
