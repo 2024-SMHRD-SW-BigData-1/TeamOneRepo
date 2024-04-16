@@ -51,7 +51,7 @@ public class UserDAO
 		{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 
-			String id = "campus_24SW_BIG_p1_2";
+			String id = "campus_24SW_BIG_p1_3";
 			String pw = "smhrd3";
 			String url = "jdbc:oracle:thin:@project-db-campus.smhrd.com:1524:xe";
 
