@@ -3,6 +3,7 @@ package Taco;
 import java.util.Scanner;
 
 import Controller.Controller;
+import Model.ScoreDTO;
 import Model.UserDTO;
 
 
@@ -84,12 +85,19 @@ public class Main
 		// 플레이 기록 확인
 		
 		// 게임 진행
-		
+		System.out.println(player.getscoreID() + "은 현재 기록id입니다");
 		if(player.getscoreID() == 0)
 		{
 			System.out.println("값이 비어있네요");
+			
+			System.out.println("점수 이름을 정하세요");
+			String scorename = sc.next();
+			
+			ScoreDTO dto = new ScoreDTO(0, scorename, 0, 0);
+			Controller con = new Controller();
+			player.setscoreID(con.scoreStart(dto).getscoreID());
 		}
-		
+		System.out.println(player.getscoreID() + "?");
 		while(true)
 		{
 

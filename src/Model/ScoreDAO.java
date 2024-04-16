@@ -25,7 +25,7 @@ public class ScoreDAO
 			// db에 들어갈 코드들
 			// 기록 테이블에 데이터수+1, 점수 이름, 0,0을 입력하여 데이터를 생성함
 			String sql = "INSERT INTO "
-					+ "기록 (scoreID, scoreName, date, point) "
+					+ "기록 (기록ID, 기록이름, 날짜, 점수) "
 					+ "VALUES((SELECT COUNT(*)+1 FROM 기록), ?, 0, 0)";
 			
 			
