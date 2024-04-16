@@ -68,7 +68,6 @@ public class UserDAO
 				int PW = rs.getInt("PW");
 				String Name = rs.getString("닉네임");
 				dto = new UserDTO(ID,  PW, Name);
-				
 			}
 
 		} catch (SQLException e)
