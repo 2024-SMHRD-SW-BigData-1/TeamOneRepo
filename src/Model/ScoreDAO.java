@@ -113,10 +113,10 @@ public class ScoreDAO
 			// 2) cursor가 하나 생겨있음 : rs
 			if(rs.next())
 			{
-				int scoreID = rs.getInt("scoreID");
-				String scoreName = rs.getString("scoreName");
-				int date = rs.getInt("date");
-				int point = rs.getInt("point");
+				int scoreID = rs.getInt("기록ID");
+				String scoreName = rs.getString("기록이름");
+				int date = rs.getInt("날짜");
+				int point = rs.getInt("점수");
 				dto = new ScoreDTO(scoreID,  scoreName, date, point);
 			}
 			

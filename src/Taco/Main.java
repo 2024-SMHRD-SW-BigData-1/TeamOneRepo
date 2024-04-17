@@ -19,7 +19,8 @@ public class Main
 		UserDTO player = null;
 		
 //		screen.StartDraw();
-//		screen.Clear();
+		screen.draw("문어 11.txt"); 
+		screen.draw("문어 11.txt"); 
 		// 게임 시작
 		
 		// 로그인
