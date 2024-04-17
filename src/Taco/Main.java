@@ -90,7 +90,7 @@ public class Main
 		{
 			System.out.println("값이 비어있네요");
 			
-			System.out.println("점수 이름을 정하세요");
+			System.out.print("점수 이름을 정하세요 : ");
 			String scorename = sc.next();
 			
 			ScoreDTO dto = new ScoreDTO(0, scorename, 0, 0);

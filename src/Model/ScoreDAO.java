@@ -94,6 +94,12 @@ public class ScoreDAO
 		return cnt2;
 	}
 	
+	public void update()
+	{
+		
+	}
+	
+	
 	// 데이터베이스와의 동적로딩/권한확인
 	public void dbOpen()
 	{
