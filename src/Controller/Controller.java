@@ -82,7 +82,7 @@ public class Controller
 		return cnt;
 	}
 
-	public void scoreSelectOne(ScoreDTO dto)
+	public ScoreDTO scoreSelectOne(ScoreDTO dto)
 	{
 		ScoreDAO dao = new ScoreDAO();
 		ScoreDTO list = dao.scoreSelectOne(dto);
@@ -90,7 +90,7 @@ public class Controller
 		if (list == null)
 		{
 			System.out.println("시스템에 데이터가 없습니다");
-			return;
+			return null;
 		}
 
 		// list에 있는 내용을 출력
@@ -109,7 +109,21 @@ public class Controller
 		System.out.println("타코야키 가격 : " + list.getprice());
 		System.out.println();
 
+		return list; 
 	}
 
+	public void scoreupdate(ScoreDTO dto)
+	{
+		ScoreDAO dao = new ScoreDAO();
+		int cnt = dao.scoreupdate(dto); // cnt
+
+		if (cnt > 0)
+		{
+			System.out.println("기록 정보 수정 성공!");
+		} else
+		{
+			System.out.println("기록 정보 수정 실패!");
+		}
+	}
 
 }

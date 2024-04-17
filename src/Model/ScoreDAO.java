@@ -137,6 +137,63 @@ public class ScoreDAO
 		return dto;
 	}
 	
+	public int scoreupdate(ScoreDTO dto)
+	{
+		int cnt = 0;
+		
+		dbOpen();
+		try
+		{
+
+			String sql = "UPDATE 기록 "
+					+ "SET "
+					+ "날짜 = ?, "
+					+ "점수 = ?, "
+					+ "돈 = ?, "
+					+ "홍보 = ?, "
+					+ "타코야키가격 = ? "
+					+ " WHERE 기록ID = ? ";
+    		psmt = conn.prepareStatement(sql);
+
+			System.out.println("dto.getdate() : " + dto.getdate());
+			psmt.setInt(1, dto.getdate());
+			
+			System.out.println("dto.getpoint() : " + dto.getpoint());
+
+			psmt.setInt(2, dto.getpoint());
+			
+			System.out.println("dto.getmoney() : " + dto.getmoney());
+
+			psmt.setInt(3, dto.getmoney());
+			
+			System.out.println("dto.getisPromoted() : " + dto.getisPromoted());
+
+			psmt.setInt(4, dto.getisPromoted());
+			
+			System.out.println("dto.getprice() : " + dto.getprice());
+
+			psmt.setInt(5, dto.getprice());
+			
+			System.out.println("dto.getscoreID() : " + dto.getscoreID());
+
+			psmt.setInt(6, dto.getscoreID());
+
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			System.out.println("sql 실행 에러");
+			e.printStackTrace();
+		} finally
+		{
+			dbClose();
+
+		}
+		
+		return cnt;
+	}
+	
 	
 	// 데이터베이스와의 동적로딩/권한확인
 	public void dbOpen()

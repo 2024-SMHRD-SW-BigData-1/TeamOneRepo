@@ -14,14 +14,15 @@ public class Main
 	public static void main(String[] args)
 	{
 		// TODO Auto-generated method stub
-		Screen screen = new Screen();
+
 		Scanner sc = new Scanner(System.in);
 		
 		UserDTO player = new UserDTO(0, 0);
 		
 //		screen.StartDraw();
-		screen.draw("문어 11.txt"); 
-		screen.draw("문어 11.txt"); 
+		Screen screen = new Screen();
+		screen.draw("logo.txt"); 
+//		screen.draw("문어 11.txt"); 
 		// 게임 시작
 		
 		// 로그인
@@ -95,7 +96,6 @@ public class Main
 		System.out.println(player.getscoreID() + "?");
 		
 		
-		System.out.print("환영합니다 : ");
 		Controller con = new Controller();
 		// 2. Controller insert에 접근
 		ScoreDTO sdto = new ScoreDTO(player.getscoreID(), null, 0, 0);
@@ -107,6 +107,6 @@ public class Main
 		
 	
 		ZZZ takogames = new ZZZ();
-		takogames.takogame();
+		takogames.takogame(player);
 }
 }

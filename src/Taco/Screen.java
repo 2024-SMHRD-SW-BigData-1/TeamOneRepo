@@ -9,10 +9,10 @@ public class Screen
 
 	public void Clear()
 	{
-		for (int i = 0; i < 80; i++)
-		{
-			System.out.println("");
-		}
+//		for (int i = 0; i < 80; i++)
+//		{
+//			System.out.println("");
+//		}
 	}
 
 	public void Draw()

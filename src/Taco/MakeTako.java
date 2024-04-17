@@ -7,14 +7,16 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 
+import Model.ScoreDTO;
+
 
 public class MakeTako {
 	
 
+	private ScoreDTO sdto;
 	
-	private int money = 100000;
-	private int takoPrice = 1000;
-	private int cnt = 0;
+//	private int money = 0;
+//	private int takoPrice = 1000;
 	private int totalTako = 0;
 	private int guestLimit = 5;
 //	private static ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
@@ -31,7 +33,25 @@ public class MakeTako {
 		
 	};
 	
-	
+	public MakeTako(ScoreDTO sdto)
+	{
+		System.out.println("나 생성중입니다");
+		
+		this.sdto = new ScoreDTO(sdto.getscoreID(), 
+								 sdto.getscoreName(),
+								 sdto.getdate(),
+								 sdto.getpoint(),
+								 sdto.getmoney(),
+								 sdto.getisPromoted(),
+								 sdto.getprice());
+		
+
+	}
+	public ScoreDTO returnTako()
+	{
+		
+		return sdto;
+	}
 	
 	
 	
@@ -78,8 +98,8 @@ public class MakeTako {
 //				wrong = true;
 				System.out.println("잘못된 조리 순서 입니다.");
 				System.out.println("-" +1000+"원");
-				money -= 1000;
-				cnt++;
+				reduceMoney(1000);
+//				cnt++;
 				System.out.println();
 				break;
 			}
@@ -98,8 +118,9 @@ public class MakeTako {
 			
 			if(index >= tako[0].length) {
 				System.out.println("타코야키 완성!");
-				System.out.println("+"+takoPrice+"원");
-				money += takoPrice;
+				System.out.println("+"+sdto.getprice()+"원");
+				//money += takoPrice;
+				plusMoney(sdto.getprice());
 				totalTako++;
 				System.out.println();
 				break;
@@ -196,11 +217,11 @@ public class MakeTako {
 	
 	
 	public int getTakoPrice() {
-		return takoPrice;
+		return sdto.getprice();
 	}
 	
 	public void setTakoPrice(int takoPrice) {
-		this.takoPrice = takoPrice;
+		sdto.setprice(takoPrice);
 	}
 	
 	public void upgradeTakoPrice() {
@@ -210,21 +231,33 @@ public class MakeTako {
 
 	
 	public int getMoney() {
-		return money;
+		System.out.println(sdto.getmoney()+" getMoney");
+		return sdto.getmoney();
 	}
 	
 	public void setMoney(int money) {
-		this.money = money;
+		sdto.setmoney(money);
 	}
 	
-	public void reduceMoney(int cost) {
+	public int reduceMoney(int cost) {
+		int output = getMoney()-cost;
 		
-		setMoney(getMoney()-cost);
+		System.out.println(sdto.getmoney()+" reduceMoney");
+		setMoney(output);
+		return output;
 	}
 	
-	public int getCnt() {
-		return cnt;
+	public int plusMoney(int cost) {
+		int output = getMoney()+cost;
+		
+		System.out.println(sdto.getmoney()+" plusMoney");
+		setMoney(output);
+		return output;
 	}
+	
+//	public int getCnt() {
+//		return cnt;
+//	}
 	
 	public int getTotalTako() {
 		return totalTako;
