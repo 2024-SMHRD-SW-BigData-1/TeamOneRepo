@@ -75,13 +75,7 @@ public class Main
 				System.out.println("1또는 2를 입력해주세요");
 				break;
 			}
-			
 
-
-		}
-		// 플레이 기록 확인
-		
-		// 게임 진행
 		System.out.println(player.getscoreID() + "은 현재 기록id입니다");
 		if(player.getscoreID() == 0)
 		{
@@ -107,9 +101,11 @@ public class Main
 			con.scoreSelectOne(sdto);
 			String scorename = sc.next();
 		}
+
 		
 		
 		
 	}
 
+}
 }

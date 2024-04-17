@@ -27,6 +27,7 @@ public class Controller
 		}
 	}
 
+
 	public UserDTO login(UserDTO dto)
 	{
 		// 1. StudentDAO 객체 생성
@@ -109,5 +110,6 @@ public class Controller
 		System.out.println();
 
 	}
+
 
 }
