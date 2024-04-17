@@ -43,6 +43,36 @@ public class UserDAO
 		return cnt;
 	}
 	
+	public int update(UserDTO dto)
+	{
+		int cnt = 0;
+		
+		dbOpen();
+		try
+		{
+
+			String sql = "UPDATE 회원정보 SET 기록ID = ? WHERE 회원ID = ?";
+    		psmt = conn.prepareStatement(sql);
+
+			psmt.setInt(1, dto.getscoreID());
+			psmt.setInt(2, dto.getID());
+
+			cnt = psmt.executeUpdate();
+
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			System.out.println("sql 실행 에러");
+			e.printStackTrace();
+		} finally
+		{
+			dbClose();
+
+		}
+		
+		return cnt;
+	}
+	
 	public UserDTO login(UserDTO dto)
 	{
 		
@@ -67,7 +97,8 @@ public class UserDAO
 				int ID = rs.getInt("회원ID");
 				int PW = rs.getInt("PW");
 				String Name = rs.getString("닉네임");
-				dto = new UserDTO(ID,  PW, Name);
+				int scoreID = rs.getInt("기록ID");
+				dto = new UserDTO(ID,  PW, Name, scoreID);
 			}
 
 		} catch (SQLException e)
@@ -83,6 +114,7 @@ public class UserDAO
 
 		return dto;
 	}
+	
 	
 	
 	// 데이터베이스와의 동적로딩/권한확인

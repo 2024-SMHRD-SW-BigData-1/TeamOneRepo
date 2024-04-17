@@ -76,11 +76,7 @@ public class Main
 			}
 			
 
-			
-			if(false)
-			{
-				break;
-			}
+
 		}
 		// 플레이 기록 확인
 		
@@ -96,11 +92,19 @@ public class Main
 			ScoreDTO dto = new ScoreDTO(0, scorename, 0, 0);
 			Controller con = new Controller();
 			player.setscoreID(con.scoreStart(dto).getscoreID());
+			con.update(player);
 		}
 		System.out.println(player.getscoreID() + "?");
+		
+		
 		while(true)
 		{
-
+			System.out.print("환영합니다 : ");
+			Controller con = new Controller();
+			// 2. Controller insert에 접근
+			ScoreDTO sdto = new ScoreDTO(player.getscoreID(), null, 0, 0);
+			con.scoreSelectOne(sdto);
+			String scorename = sc.next();
 		}
 		
 		

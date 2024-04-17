@@ -15,6 +15,14 @@ public class UserDTO
 		this.scoreID = 0;
 	}
 	
+	public UserDTO(int  ID, int PW, String Name, int scoreID)
+	{
+		this.ID = ID;
+		this.PW = PW;
+		this.Name = Name;
+		this.scoreID = scoreID;
+	}
+	
 	public UserDTO(int  ID, int PW)
 	{
 		this.ID = ID;

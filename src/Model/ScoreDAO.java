@@ -12,6 +12,8 @@ public class ScoreDAO
 	PreparedStatement psmt = null;
 	ResultSet rs = null;
 	
+
+	
 	// 시작시 점수를 생성해줌
 	public int scoreStart(ScoreDTO dto)
 	{
@@ -53,7 +55,7 @@ public class ScoreDAO
 		// 다시 엶
 		dbOpen();
 		// 이번엔 테이블의 숫자를 알아내서 리턴해야하므로 이러한 문자열을 넘겨줌
-		String sql2 = "(SELECT COUNT(*)+1 as cnt2 FROM 기록)";
+		String sql2 = "(SELECT COUNT(*) as cnt2 FROM 기록)";
 		int cnt2 = 0;
 		try
 		{
@@ -94,9 +96,42 @@ public class ScoreDAO
 		return cnt2;
 	}
 	
-	public void update()
+	public ScoreDTO scoreSelectOne(ScoreDTO dto)
 	{
+		dbOpen();
+
+		String sql = "SELECT * FROM 기록 WHERE 기록ID = ?";
+
+		try
+		{
+			psmt = conn.prepareStatement(sql);
+			psmt.setInt(1, dto.getscoreID());
+			rs = psmt.executeQuery();
+
+			// rs
+			// 1) 자바에서 사용할 수 있는 테이블 형태의 데이터
+			// 2) cursor가 하나 생겨있음 : rs
+			if(rs.next())
+			{
+				int scoreID = rs.getInt("scoreID");
+				String scoreName = rs.getString("scoreName");
+				int date = rs.getInt("date");
+				int point = rs.getInt("point");
+				dto = new ScoreDTO(scoreID,  scoreName, date, point);
+			}
+			
+			
+		} catch (SQLException e)
+		{
+			// TODO Auto-generated catch block
+			System.out.println("sql문 예외사항 발생");
+			e.printStackTrace();
+		} finally {
+			dbClose();
+		}
 		
+		// list : 학생 정보들이 StudentDTO 자료형으로 다 저장
+		return dto;
 	}
 	
 	
@@ -153,5 +188,7 @@ public class ScoreDAO
 			e.printStackTrace();
 		}
 	}
+
+
  
 }
