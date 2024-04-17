@@ -5,6 +5,7 @@ import java.util.Scanner;
 import Controller.Controller;
 import Model.ScoreDTO;
 import Model.UserDTO;
+import Taco.ZZZ;
 
 
 public class Main
@@ -16,7 +17,7 @@ public class Main
 		Screen screen = new Screen();
 		Scanner sc = new Scanner(System.in);
 		
-		UserDTO player = null;
+		UserDTO player = new UserDTO(0, 0);
 		
 //		screen.StartDraw();
 		screen.draw("문어 11.txt"); 
@@ -75,7 +76,9 @@ public class Main
 				System.out.println("1또는 2를 입력해주세요");
 				break;
 			}
-
+		}
+		
+		
 		System.out.println(player.getscoreID() + "은 현재 기록id입니다");
 		if(player.getscoreID() == 0)
 		{
@@ -92,20 +95,18 @@ public class Main
 		System.out.println(player.getscoreID() + "?");
 		
 		
-		while(true)
-		{
-			System.out.print("환영합니다 : ");
-			Controller con = new Controller();
-			// 2. Controller insert에 접근
-			ScoreDTO sdto = new ScoreDTO(player.getscoreID(), null, 0, 0);
-			con.scoreSelectOne(sdto);
-			String scorename = sc.next();
-		}
+		System.out.print("환영합니다 : ");
+		Controller con = new Controller();
+		// 2. Controller insert에 접근
+		ScoreDTO sdto = new ScoreDTO(player.getscoreID(), null, 0, 0);
+		con.scoreSelectOne(sdto);
+//		String scorename = sc.next();
+		
 
 		
 		
-		
-	}
-
+	
+		ZZZ takogames = new ZZZ();
+		takogames.takogame();
 }
 }

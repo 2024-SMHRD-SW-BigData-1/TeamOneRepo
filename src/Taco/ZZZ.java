@@ -4,7 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class ZZZ {
-	public static void main(String[] args) {
+	public void takogame() {
 		Scanner sc = new Scanner(System.in);
 		Random rd = new Random();
 		MakeTako maketako = new MakeTako();

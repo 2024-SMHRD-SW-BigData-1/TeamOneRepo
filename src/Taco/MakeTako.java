@@ -77,8 +77,8 @@ public class MakeTako {
 //				stopTimer();
 //				wrong = true;
 				System.out.println("잘못된 조리 순서 입니다.");
-				System.out.println("-" +takoPrice+"원");
-				money -= takoPrice;
+				System.out.println("-" +1000+"원");
+				money -= 1000;
 				cnt++;
 				System.out.println();
 				break;
