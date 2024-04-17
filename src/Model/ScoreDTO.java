@@ -6,6 +6,9 @@ public class ScoreDTO
 	private String scoreName;
 	private int date;
 	private int point;
+	private int money;
+	private int isPromoted;
+	private int price;
 
 	public ScoreDTO(int scoreID, String scoreName, int date, int point) 
 	{
@@ -13,11 +16,28 @@ public class ScoreDTO
 		this.scoreName = scoreName;
 		this.date = date;
 		this.point = point;
+		
 	}
 	
+	public ScoreDTO(int scoreID, String scoreName, int date, int point, int money) 
+	{
+		this.scoreID = scoreID;
+		this.scoreName = scoreName;
+		this.date = date;
+		this.point = point;
+		this.money = money;
+	}
 	
-	
-	
+	public ScoreDTO(int scoreID, String scoreName, int date, int point, int money, int isPromoted, int price) 
+	{
+		this.scoreID = scoreID;
+		this.scoreName = scoreName;
+		this.date = date;
+		this.point = point;
+		this.money = money;
+		this.isPromoted = isPromoted;
+		this.price = price;
+	}
 
 	public int getscoreID() 
 	{
@@ -54,9 +74,38 @@ public class ScoreDTO
 		return point;
 	}
 
-	public void setspoint(int point) 
+	public void setpoint(int point) 
 	{
 		this.point = point;
 	}
+	
+	public int getmoney() 
+	{
+		return money;
+	}
 
+	public void setmoney(int money) 
+	{
+		this.money = money;
+	}
+
+	public int getisPromoted() 
+	{
+		return isPromoted;
+	}
+
+	public void setisPromoted(int isPromoted) 
+	{
+		this.isPromoted = isPromoted;
+	}
+	
+	public int getprice() 
+	{
+		return price;
+	}
+
+	public void setprice(int price) 
+	{
+		this.price = price;
+	}
 }

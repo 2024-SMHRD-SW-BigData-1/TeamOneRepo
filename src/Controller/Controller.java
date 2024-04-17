@@ -97,6 +97,15 @@ public class Controller
 		System.out.println("기록이름 : " + list.getscoreName());
 		System.out.println("날짜 : " + list.getdate());
 		System.out.println("점수 : " + list.getpoint());
+		System.out.println("돈 : " + list.getmoney());
+		boolean isPromoted = false;
+		if(list.getisPromoted() != 0)
+		{
+			isPromoted = true;
+		}
+		
+		System.out.println("홍보 여부 : " + isPromoted);
+		System.out.println("타코야키 가격 : " + list.getprice());
 		System.out.println();
 
 	}
