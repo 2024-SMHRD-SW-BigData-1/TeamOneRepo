@@ -9,6 +9,7 @@ public class ScoreDTO
 	private int money;
 	private int isPromoted;
 	private int price;
+	private int selltako;
 
 	public ScoreDTO(int scoreID, String scoreName, int date, int point) 
 	{
