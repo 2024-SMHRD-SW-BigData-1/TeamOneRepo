@@ -6,11 +6,11 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/smhrd1/Desktop/sqldeveloper-23.1.1.345.2114-x64/sqldeveloper/jdbc/lib/ojdbc11.jar">
+	<classpathentry kind="lib" path="C:/Users/SMHRD/Desktop/Music/player.jar"/>
+	<classpathentry kind="lib" path="C:/Users/SMHRD/Downloads/sqldeveloper-23.1.1.345.2114-x64/sqldeveloper/jdbc/lib/ojdbc11.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/smhrd1/Desktop/Music/player.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
