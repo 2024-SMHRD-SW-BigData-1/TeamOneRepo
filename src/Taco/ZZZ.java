@@ -10,7 +10,7 @@ import Model.UserDTO;
 
 public class ZZZ
 {
-	public void takogame(UserDTO player)
+	public void takogame(UserDTO player, boolean first)
 	{
 
 		Screen screen = new Screen();
@@ -29,8 +29,18 @@ public class ZZZ
 //		int operationDay = 0;
 		boolean promotion = false;
 
+		
 		while (gameloop)
 		{
+			if(first == true)
+			{
+				System.out.println("첫 시작 지원금 50000원을 받았습니다");
+				maketako.plusMoney(50000);
+				
+				screen.돈소리();
+				first = false;
+			}
+			
 			System.out.println("===================== 게임 모드 선택 =====================");
 			System.out.println("1.오늘 장사 시작 2.가게 현황 3.가게 홍보 4.메뉴 개발 5.게임 종료");
 			select = sc.nextInt();
@@ -105,7 +115,8 @@ public class ZZZ
 						// 현재 돈 확인
 						screen.draw("현재자금.txt");
 						System.out.println("==================== 현재 자금 ====================");
-						System.out.println("보유 금액 : " + maketako.getMoney());
+						System.out.println("점수(총 번 금액) : " + maketako.getPoint());
+						System.out.println("현재 금액 : " + maketako.getMoney());
 						System.out.print("나가시려면 아무 숫자나 입력해주세요 >>");
 						select = sc.nextInt();
 					} else if (select == 2)

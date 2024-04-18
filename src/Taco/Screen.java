@@ -39,42 +39,72 @@ public class Screen
 		}
 	}
 
-	MP3Player mp3;
+	MP3Player mp3 = new MP3Player();
+	MP3Player mp4 = new MP3Player();
+	MP3Player mp5 = new MP3Player();
 	
 	public void 지글대는소리()
 	{
-		mp3 = new MP3Player();
+		지글대는소리그만하기();
         Path currentPath = Paths.get("").toAbsolutePath();
         
         // 절대 경로를 문자열로 변환하여 출력합니다.
 //        System.out.println("지글대는소리의 현재 실행 중인 디렉토리: " + currentPath);
-		mp3.play(currentPath + "/Frying_Food.wav");
+		mp3.play(currentPath + "/Frying_Food.mp3");
 
+	}
+	
+	public void 지글대는소리그만하기()
+	{
+		if (mp3.isPlaying() == true)
+		{
+			mp3.stop();
+		}
 	}
 	
 	public void 돈소리()
 	{
-		mp3 = new MP3Player();
+		돈소리그만하기();
+//		mp3 = new MP3Player();
         Path currentPath = Paths.get("").toAbsolutePath();
         
         // 절대 경로를 문자열로 변환하여 출력합니다.
 //        System.out.println("돈소리의 현재 실행 중인 디렉토리: " + currentPath);
-		mp3.play(currentPath + "/coin.mp3");
+		mp4.play(currentPath + "/coin.mp3");
 
+	}
+	
+	public void 돈소리그만하기()
+	{
+		if (mp4.isPlaying() == true)
+		{
+			mp4.stop();
+		}
 	}
 	
 	public void musicPlay()
 	{
+		stopmusic();
 //		stopMusic();
-		mp3 = new MP3Player();
+//		mp3 = new MP3Player();
 //		mp3.play("C:/Users/smhrd1/Desktop/music/밤양갱.mp3");
         Path currentPath = Paths.get("").toAbsolutePath();
         
         // 절대 경로를 문자열로 변환하여 출력합니다.
 //        System.out.println("밤양갱의 현재 실행 중인 디렉토리: " + currentPath);
-		mp3.play(currentPath + "/밤양갱.mp3");
+		mp5.play(currentPath + "/밤양갱.mp3");
 //		return music.get(index).getTitle();
 	}
+	
+	public void stopmusic()
+	{
+		if(mp5.isPlaying() == true)
+		{
+			mp5.stop();
+		}
+		
+	}
+	
 	
 	public void draw(String filePath)
 	{

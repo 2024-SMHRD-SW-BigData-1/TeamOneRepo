@@ -202,7 +202,7 @@ public class MakeTako
 
 	public int getMoney()
 	{
-		System.out.println(sdto.getmoney() + " getMoney");
+//		System.out.println(sdto.getmoney() + " getMoney");
 		return sdto.getmoney();
 	}
 
@@ -215,7 +215,7 @@ public class MakeTako
 	{
 		int output = getMoney() - cost;
 
-		System.out.println(sdto.getmoney() + " reduceMoney");
+//		System.out.println(sdto.getmoney() + " reduceMoney");
 		setMoney(output);
 		return output;
 	}
@@ -224,7 +224,7 @@ public class MakeTako
 	{
 		int output = getMoney() + cost;
 
-		System.out.println(sdto.getmoney() + " plusMoney");
+//		System.out.println(sdto.getmoney() + " plusMoney");
 		setMoney(output);
 		pluspoint(output);
 		return output;

@@ -28,7 +28,7 @@ public class ScoreDAO
 			// 기록 테이블에 데이터수+1, 점수 이름, 0,0을 입력하여 데이터를 생성함
 			String sql = "INSERT INTO "
 					+ "기록 (기록ID, 기록이름, 날짜, 점수, 돈, 홍보, 타코야키가격, 타코야키판매수) "
-					+ "VALUES((SELECT COUNT(*)+1 FROM 기록), ?, 0, 0, 50000, 0, 1000, 0)";
+					+ "VALUES((SELECT COUNT(*)+1 FROM 기록), ?, 0, 0, 0, 0, 1000, 0)";
 			
 			
 			psmt = conn.prepareStatement(sql);

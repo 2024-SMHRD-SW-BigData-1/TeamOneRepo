@@ -19,6 +19,8 @@ public class Main
 		
 		UserDTO player = new UserDTO(0, 0);
 		
+		boolean firstgame = false;
+		
 //		screen.StartDraw();
 		Screen screen = new Screen();
 //		screen.draw("logo.txt"); 
@@ -93,8 +95,9 @@ public class Main
 			Controller con = new Controller();
 			player.setscoreID(con.scoreStart(dto).getscoreID());
 			con.update(player);
+			firstgame = true;
 		}
-		System.out.println(player.getscoreID() + "?");
+//		System.out.println(player.getscoreID() + "?");
 		
 		
 		Controller con = new Controller();
@@ -108,6 +111,15 @@ public class Main
 		
 	
 		ZZZ takogames = new ZZZ();
-		takogames.takogame(player);
+		screen.stopmusic();
+		takogames.takogame(player, firstgame);
+
+		String exexit2 = null;
+		while(exexit2 == null)
+		{
+			System.out.println("종료하려면 아무 키나 입력하세요");
+			exexit2 = sc.next();
+		}
+
 }
 }
