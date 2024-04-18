@@ -30,6 +30,7 @@ public class MakeTako
 
 	};
 
+	Screen screen = new Screen();
 	public MakeTako(ScoreDTO sdto)
 	{
 		System.out.println("나 생성중입니다");
@@ -80,6 +81,7 @@ public class MakeTako
 			if (tako[rdRecipe][index] == select)
 			{
 				index++;
+				screen.지글대는소리();
 			} else if (tako[rdRecipe][index] != select)
 			{
 //				stopTimer();
@@ -106,6 +108,7 @@ public class MakeTako
 				System.out.println("+" + sdto.getprice() + "원");
 				// money += takoPrice;
 				plusMoney(sdto.getprice());
+				screen.돈소리();
 				plusselltako(1);
 				System.out.println();
 				break;

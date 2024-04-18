@@ -41,14 +41,27 @@ public class Screen
 
 	MP3Player mp3;
 	
-//	public void bitsound(String )
-//	{
-//		mp3 = new MP3Player();
-//		switch()
-//		{
-//		
-//		}
-//	}
+	public void 지글대는소리()
+	{
+		mp3 = new MP3Player();
+        Path currentPath = Paths.get("").toAbsolutePath();
+        
+        // 절대 경로를 문자열로 변환하여 출력합니다.
+//        System.out.println("지글대는소리의 현재 실행 중인 디렉토리: " + currentPath);
+		mp3.play(currentPath + "/Frying_Food.wav");
+
+	}
+	
+	public void 돈소리()
+	{
+		mp3 = new MP3Player();
+        Path currentPath = Paths.get("").toAbsolutePath();
+        
+        // 절대 경로를 문자열로 변환하여 출력합니다.
+//        System.out.println("돈소리의 현재 실행 중인 디렉토리: " + currentPath);
+		mp3.play(currentPath + "/coin.mp3");
+
+	}
 	
 	public void musicPlay()
 	{
@@ -58,7 +71,7 @@ public class Screen
         Path currentPath = Paths.get("").toAbsolutePath();
         
         // 절대 경로를 문자열로 변환하여 출력합니다.
-        System.out.println("현재 실행 중인 디렉토리: " + currentPath);
+//        System.out.println("밤양갱의 현재 실행 중인 디렉토리: " + currentPath);
 		mp3.play(currentPath + "/밤양갱.mp3");
 //		return music.get(index).getTitle();
 	}

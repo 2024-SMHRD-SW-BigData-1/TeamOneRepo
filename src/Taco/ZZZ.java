@@ -160,6 +160,7 @@ public class ZZZ
 								maketako.setGuestLimit(10);
 								System.out.println("하루 당 손님 수가 5명 증가했습니다. 손님 수 : " + maketako.getGuestLimit() + "명");
 								System.out.println("보유 자금 : " + maketako.getMoney() + "원");
+								screen.돈소리();
 								System.out.print("홍보를 완료했습니다. 나가시려면 아무 숫자나 입력해주세요 >>");
 								select = sc.nextInt();
 //								promotion = true;
@@ -210,6 +211,7 @@ public class ZZZ
 							maketako.reduceMoney(50000);
 							maketako.upgradeTakoPrice();
 							System.out.println("타코야키 가격이 100원 상승했습니다. 현재 타코야키 가격 : " + maketako.getTakoPrice() + "원");
+							screen.돈소리();
 							System.out.println("보유 자금 : " + maketako.getMoney() + "원");
 							System.out.print("나가시려면 아무 숫자나 입력해주세요 >>");
 							select = sc.nextInt();
