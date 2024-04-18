@@ -40,8 +40,15 @@ public class Screen
 	{
 		Clear();
         //String filePath = "logo.txt"; // 실제 파일 경로로 변경해야 함
-        printAsciiArtFromFile(filePath);
+//        printAsciiArtFromFile(filePath);
 	
+		switch(filePath)
+		{
+		case "logo.txt":
+			System.out.println("");
+			break;
+		}
+		
 	}
 	
 }
