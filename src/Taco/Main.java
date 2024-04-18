@@ -21,7 +21,7 @@ public class Main
 		
 //		screen.StartDraw();
 		Screen screen = new Screen();
-		screen.draw("logo.txt"); 
+//		screen.draw("logo.txt"); 
 //		screen.draw("문어 11.txt"); 
 		// 게임 시작
 		
@@ -30,6 +30,7 @@ public class Main
 		
 		while(loginLoop)
 		{
+			screen.draw("logo.txt"); 
 			System.out.println("==== 로그인/회원가입 ====");
 			System.out.println("로그인을 원하시면 1 아니면 2를 입력해 주세요");
 			int check = sc.nextInt();
