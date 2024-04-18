@@ -94,7 +94,8 @@ public class ZZZ
 				boolean loop = true;
 				while (loop)
 				{
-					System.out.println("===== 가게 현황 =====");
+					screen.draw("가게현황.txt");
+					System.out.println("==================== 가게 현황 ====================");
 					System.out.println("[1]현재 보유 금액 확인 [2]타코야키 가게 운영 일수 [3]누적 타코야키 판매 개수 [4]나가기");
 					select = sc.nextInt();
 
@@ -102,15 +103,27 @@ public class ZZZ
 					if (select == 1)
 					{
 						// 현재 돈 확인
+						screen.draw("현재자금.txt");
+						System.out.println("==================== 현재 자금 ====================");
 						System.out.println("보유 금액 : " + maketako.getMoney());
+						System.out.print("나가시려면 아무 숫자나 입력해주세요 >>");
+						select = sc.nextInt();
 					} else if (select == 2)
 					{
 						// 타코야키 운영한 누적 날짜
+						screen.draw("운영일수.txt");
+						System.out.println("==================== 운영 일수 ====================");
 						System.out.println("운영 일수 : " + (maketako.returnTako().getdate()));
+						System.out.print("나가시려면 아무 숫자나 입력해주세요 >>");
+						select = sc.nextInt();
 					} else if (select == 3)
 					{
 						// 지금까지 만든 타코야키 개수 확인
+						screen.draw("타코야키판매개수.txt");
+						System.out.println("==================== 타코야키 총 판매 개수 ====================");
 						System.out.println("타코야키 판매 개수 : " + maketako.getTotalTako());
+						System.out.print("나가시려면 아무 숫자나 입력해주세요 >>");
+						select = sc.nextInt();
 						// 게임 메뉴 선택 화면으로 나가기
 					} else if (select == 4)
 					{
@@ -118,7 +131,7 @@ public class ZZZ
 						loop = false;
 					} else
 					{
-						System.out.println("잘못된 입력입니다.");
+//						System.out.println("잘못된 입력입니다.");
 					}
 					System.out.println();
 				}
@@ -129,7 +142,8 @@ public class ZZZ
 					loop = true;
 					while (loop)
 					{
-						System.out.println("===== 가게 홍보 =====");
+						screen.draw("홍보.txt");
+						System.out.println("==================== 가게 홍보 ====================");
 						System.out.println(
 								"가게를 홍보할 시 영구적으로 손님 수 5명 증가(비용 : 50000원)" + "(보유 자금 : " + maketako.getMoney() + "원)");
 						System.out.println("가게 홍보는 게임에서 단 1번만 가능합니다.");
@@ -146,22 +160,25 @@ public class ZZZ
 								maketako.setGuestLimit(10);
 								System.out.println("하루 당 손님 수가 5명 증가했습니다. 손님 수 : " + maketako.getGuestLimit() + "명");
 								System.out.println("보유 자금 : " + maketako.getMoney() + "원");
-								System.out.println("홍보를 완료했으므로 화면을 나갑니다.");
+								System.out.print("홍보를 완료했습니다. 나가시려면 아무 숫자나 입력해주세요 >>");
+								select = sc.nextInt();
 //								promotion = true;
 								maketako.returnTako().setisPromoted(1);
 								loop = false;
 							} else
 							{
 								System.out.println("돈이 " + (50000 - maketako.getMoney()) + "원 부족합니다.");
+								System.out.print("나가시려면 아무 숫자나 입력해주세요 >>");
+								select = sc.nextInt();
 							}
 						} else if (select == 2)
 						{
 							// 선택 화면으로 나가기
-							System.out.println("가게 홍보 페이지 나가기");
+//							System.out.println("가게 홍보 페이지 나가기");
 							loop = false;
 						} else
 						{
-							System.out.println("잘못된 입력입니다.");
+//							System.out.println("잘못된 입력입니다.");
 						}
 
 						System.out.println();
@@ -169,13 +186,16 @@ public class ZZZ
 				} else
 				{
 					System.out.println("이미 홍보를 하셨습니다.");
+					System.out.print("나가시려면 아무 숫자나 입력해주세요 >>");
+					select = sc.nextInt();
 				}
 				break;
 			case 4:
 				loop = true;
 				while (loop)
 				{
-					System.out.println("===== 메뉴 개발 =====");
+					screen.draw("메뉴개발.txt");
+					System.out.println("==================== 메뉴 개발 ====================");
 					System.out.println(
 							"메뉴를 개발할 시 타코야키 가격 100원 상승(비용 : 50000원)" + "(보유 자금 : " + maketako.getMoney() + "원)");
 					System.out.println("[1]메뉴 개발 시작 [2]나가기");
@@ -191,25 +211,29 @@ public class ZZZ
 							maketako.upgradeTakoPrice();
 							System.out.println("타코야키 가격이 100원 상승했습니다. 현재 타코야키 가격 : " + maketako.getTakoPrice() + "원");
 							System.out.println("보유 자금 : " + maketako.getMoney() + "원");
+							System.out.print("나가시려면 아무 숫자나 입력해주세요 >>");
+							select = sc.nextInt();
 						} else
 						{
 							System.out.println("돈이 " + (50000 - maketako.getMoney()) + "원 부족합니다.");
+							System.out.print("나가시려면 아무 숫자나 입력해주세요 >>");
+							select = sc.nextInt();
 						}
 					} else if (select == 2)
 					{
 						// 선택 화면으로 나가기
-						System.out.println("메뉴 개발 화면 나가기");
+//						System.out.println("메뉴 개발 화면 나가기");
 						loop = false;
 					} else
 					{
-						System.out.println("잘못된 입력입니다.");
+//						System.out.println("잘못된 입력입니다.");
 					}
 					System.out.println();
 				}
 				break;
 
 			case 5:
-				System.out.println("게임 종료");
+				System.out.println("==================== 게임 종료 ====================");
 
 				Controller con = new Controller();
 				con.scoreupdate(maketako.returnTako());
