@@ -55,8 +55,11 @@ public class Screen
 //		stopMusic();
 		mp3 = new MP3Player();
 //		mp3.play("C:/Users/smhrd1/Desktop/music/밤양갱.mp3");
-
-		mp3.play("밤양갱.mp3");
+        Path currentPath = Paths.get("").toAbsolutePath();
+        
+        // 절대 경로를 문자열로 변환하여 출력합니다.
+        System.out.println("현재 실행 중인 디렉토리: " + currentPath);
+		mp3.play(currentPath + "/밤양갱.mp3");
 //		return music.get(index).getTitle();
 	}
 	
