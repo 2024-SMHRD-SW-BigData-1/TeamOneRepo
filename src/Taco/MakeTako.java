@@ -16,7 +16,7 @@ public class MakeTako
 
 //	private int money = 0;
 //	private int takoPrice = 1000;
-	private int totalTako = 0;
+//	private int totalTako = 0;
 	private int guestLimit = 5;
 //	private static ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 //  private static ScheduledFuture<?> timerTask;
@@ -35,7 +35,7 @@ public class MakeTako
 		System.out.println("나 생성중입니다");
 
 		this.sdto = new ScoreDTO(sdto.getscoreID(), sdto.getscoreName(), sdto.getdate(), sdto.getpoint(),
-				sdto.getmoney(), sdto.getisPromoted(), sdto.getprice());
+				sdto.getmoney(), sdto.getisPromoted(), sdto.getprice(), sdto.getselltako());
 
 	}
 
@@ -106,7 +106,7 @@ public class MakeTako
 				System.out.println("+" + sdto.getprice() + "원");
 				// money += takoPrice;
 				plusMoney(sdto.getprice());
-				totalTako++;
+				plusselltako(1);
 				System.out.println();
 				break;
 			}
@@ -244,9 +244,21 @@ public class MakeTako
 	}
 	
 
-	public int getTotalTako()
+	public int getselltako()
 	{
-		return totalTako;
+		return sdto.getselltako();
+	}
+	
+	public void setselltako(int selltako)
+	{
+		sdto.setselltako(selltako);
+	}
+	
+	public int plusselltako(int selltako)
+	{
+		int output = getselltako() + selltako;
+		setselltako(output);
+		return output;
 	}
 
 	public int getGuestLimit()

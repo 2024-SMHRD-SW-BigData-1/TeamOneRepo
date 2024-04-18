@@ -21,7 +21,7 @@ public class ZZZ
 		Controller usercon = new Controller();
 		MakeTako maketako = new MakeTako(usercon.scoreSelectOne(usersdto));
 
-//		maketako.setMoney(200000);
+//		maketako.plusMoney(200000);
 //		maketako.setTakoPrice(2000);
 
 		int select = 0;
@@ -110,7 +110,7 @@ public class ZZZ
 					} else if (select == 3)
 					{
 						// 지금까지 만든 타코야키 개수 확인
-						System.out.println("타코야키 판매 개수 : " + maketako.getTotalTako());
+						System.out.println("타코야키 판매 개수 : " + maketako.getselltako());
 						// 게임 메뉴 선택 화면으로 나가기
 					} else if (select == 4)
 					{

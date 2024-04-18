@@ -39,6 +39,20 @@ public class ScoreDTO
 		this.isPromoted = isPromoted;
 		this.price = price;
 	}
+	
+	public ScoreDTO(int scoreID, String scoreName, int date, int point, int money, int isPromoted, int price, int selltako) 
+	{
+		this.scoreID = scoreID;
+		this.scoreName = scoreName;
+		this.date = date;
+		this.point = point;
+		this.money = money;
+		this.isPromoted = isPromoted;
+		this.price = price;
+		this.selltako = selltako;
+	}
+	
+	
 
 	public int getscoreID() 
 	{
@@ -108,5 +122,15 @@ public class ScoreDTO
 	public void setprice(int price) 
 	{
 		this.price = price;
+	}
+	
+	public int getselltako() 
+	{
+		return selltako;
+	}
+
+	public void setselltako(int selltako) 
+	{
+		this.selltako = selltako;
 	}
 }

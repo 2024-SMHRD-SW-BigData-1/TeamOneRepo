@@ -27,8 +27,8 @@ public class ScoreDAO
 			// db에 들어갈 코드들
 			// 기록 테이블에 데이터수+1, 점수 이름, 0,0을 입력하여 데이터를 생성함
 			String sql = "INSERT INTO "
-					+ "기록 (기록ID, 기록이름, 날짜, 점수, 타코야키가격) "
-					+ "VALUES((SELECT COUNT(*)+1 FROM 기록), ?, 0, 0, 1000)";
+					+ "기록 (기록ID, 기록이름, 날짜, 점수, 돈, 홍보, 타코야키가격, 타코야키판매수) "
+					+ "VALUES((SELECT COUNT(*)+1 FROM 기록), ?, 0, 0, 50000, 0, 1000, 0)";
 			
 			
 			psmt = conn.prepareStatement(sql);
@@ -120,7 +120,9 @@ public class ScoreDAO
 				int money = rs.getInt("돈");
 				int isPromoted = rs.getInt("홍보");
 				int price = rs.getInt("타코야키가격");
-				dto = new ScoreDTO(scoreID,  scoreName, date, point, money, isPromoted, price);
+				int selltako = rs.getInt("타코야키판매수");
+				System.out.println("타코야키 판매수 받아오기 : " + selltako);
+				dto = new ScoreDTO(scoreID,  scoreName, date, point, money, isPromoted, price, selltako);
 			}
 			
 			
@@ -151,32 +153,35 @@ public class ScoreDAO
 					+ "점수 = ?, "
 					+ "돈 = ?, "
 					+ "홍보 = ?, "
-					+ "타코야키가격 = ? "
+					+ "타코야키가격 = ?, "
+					+ "타코야키판매수 = ? "
 					+ " WHERE 기록ID = ? ";
     		psmt = conn.prepareStatement(sql);
 
+    		System.out.println("기록ID = " + dto.getscoreID());
+    		
 			System.out.println("dto.getdate() : " + dto.getdate());
 			psmt.setInt(1, dto.getdate());
 			
 			System.out.println("dto.getpoint() : " + dto.getpoint());
-
 			psmt.setInt(2, dto.getpoint());
 			
 			System.out.println("dto.getmoney() : " + dto.getmoney());
-
 			psmt.setInt(3, dto.getmoney());
 			
 			System.out.println("dto.getisPromoted() : " + dto.getisPromoted());
-
 			psmt.setInt(4, dto.getisPromoted());
 			
 			System.out.println("dto.getprice() : " + dto.getprice());
-
 			psmt.setInt(5, dto.getprice());
 			
+			System.out.println("dto.getselltako() : " + dto.getselltako());
+			psmt.setInt(6, dto.getselltako());
+			
 			System.out.println("dto.getscoreID() : " + dto.getscoreID());
+			psmt.setInt(7, dto.getscoreID());
+			
 
-			psmt.setInt(6, dto.getscoreID());
 
 			cnt = psmt.executeUpdate();
 
