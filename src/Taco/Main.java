@@ -24,7 +24,7 @@ public class Main
 //		screen.draw("logo.txt"); 
 //		screen.draw("문어 11.txt"); 
 		// 게임 시작
-		
+		screen.musicPlay();
 		// 로그인
 		boolean loginLoop = true;
 		
